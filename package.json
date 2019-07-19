@@ -1,0 +1,29 @@
+{
+  "name": "CameraDemo",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "dva-core": "^1.4.0",
+    "react": "16.6.3",
+    "react-native": "0.57.8",
+    "react-native-camera": "^2.11.1",
+    "react-navigation": "2.5.1",
+    "react-navigation-redux-helpers": "2.0.2",
+    "react-redux": "5.0.7",
+    "rn-fetch-blob": "0.10.13"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "babel-jest": "24.8.0",
+    "jest": "24.8.0",
+    "metro-react-native-babel-preset": "0.55.0",
+    "react-test-renderer": "16.6.3"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
