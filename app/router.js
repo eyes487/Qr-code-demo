@@ -5,19 +5,19 @@ import {
   createNavigationReducer,
 } from 'react-navigation-redux-helpers'
 import { createSwitchNavigator ,NavigationActions} from 'react-navigation'; 
-import {BackHandler} from 'react-native';
+import {BackHandler,View} from 'react-native';
 import { connect } from 'react-redux';
 
 
 
 
 /**引入页面 */
-import MyScan from './scan';
-
+import MyScan from './pages/scan';
+import AppStackNavigator from './navigator'
 
 
 const RootStack = createSwitchNavigator({
-  Auth: MyScan,
+  Auth: AppStackNavigator,
 
 },
 {
@@ -46,7 +46,7 @@ function getActiveRouteName(navigationState) {
   }
 
 
-@ connect(({  router }) => ({  router }))
+@connect(({  router }) => ({  router }))
 
 class Router extends PureComponent {
 
@@ -55,9 +55,7 @@ class Router extends PureComponent {
     const { dispatch, router } = this.props
 
     return (
-
-          <App dispatch={dispatch} state={router} />
-
+            <App dispatch={dispatch} state={router} />
     )
   }
 }

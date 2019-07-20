@@ -19,10 +19,16 @@ const { width, height } = Dimensions.get('window');
 import {RNCamera} from 'react-native-camera';
 import ViewFinder from './viewFinder';
 
-import backIcon from './img/backIcon.png';
-import scanLine from './img/scan_line.png';
+import backIcon from '../img/backIcon.png';
+import scanLine from '../img/scan_line.png';
 
 export default class MyScan extends Component {
+    static navigationOptions = ({ navigation, navigationOptions }) => {
+        const {navigate} = navigation;
+        return({
+            header: null
+        })
+    };
     constructor(props) {
         super(props);
         this.camera = null;
@@ -62,7 +68,8 @@ export default class MyScan extends Component {
         // console.log("开始动画");
     }
     barcodeReceived (e){
-        console.log('进来了',e)
+        const {navigation:{navigate}} = this.props;
+        // console.log('进来了',e)
         if (e.data !== this.transCode) {
             Vibration.vibrate([0, 500, 200, 500]);
             this.transCode = e.data; // 放在this上，防止触发多次，setstate有延时
@@ -70,6 +77,10 @@ export default class MyScan extends Component {
                 this.changeState(false);
                 //通过条码编号获取数据
             }
+            this.setState({
+                isEndAnimation: true,
+            });
+            navigate('Result',{result:this.transCode});
             console.log("transCode=" + this.transCode);
         }
     }
@@ -78,7 +89,7 @@ export default class MyScan extends Component {
         this.setState({
             isEndAnimation: true,
         });
-        this.props.navigator.pop();
+        this.props.navigation.goBack();
     }
     //开灯关灯
     _changeFlash = () => {
@@ -108,7 +119,7 @@ export default class MyScan extends Component {
                         console.log('ready')
                     }}
                     permissionDialogTitle={'Permission to use camera'}
-                    permissionDialogMessage={'We need your permission to use your camera phone'}
+                    permissionDialogMessage={'需要获取照相机权限'}
                     style={styles.cameraStyle}
                 >
                     <View style={styles.container}>
@@ -120,6 +131,7 @@ export default class MyScan extends Component {
                                     </View>
                                 </TouchableOpacity>
                             </View>
+                            <Text style={styles.rightText}>相册</Text>
                         </View>
                     </View>
                     <View style={styles.centerContainer} />
@@ -198,10 +210,15 @@ const styles = StyleSheet.create({
             }
         }),
         flexDirection: 'row',
+        justifyContent: 'space-between'
     },
     leftContainer: {
         flex: 0,
         justifyContent: 'center',
+    },
+    rightText:{
+        color: '#fff',
+        marginRight: 15
     },
     backImg: {
         marginLeft: 10,
