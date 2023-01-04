@@ -3526,11 +3526,9 @@ json-stringify-safe@~5.0.1:
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
 json5@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.npm.taobao.org/json5/download/json5-2.1.0.tgz#e7a0c62c48285c628d20a10b85c89bb807c32850"
-  integrity sha1-56DGLEgoXGKNIKELhcibuAfDKFA=
-  dependencies:
-    minimist "^1.2.0"
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.3.tgz#78cd6f1a19bdc12b73db5ad0c61efd66c1e29283"
+  integrity sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==
 
 jsonfile@^2.1.0:
   version "2.4.0"
@@ -4925,11 +4923,6 @@ react-native-drawer-layout@1.3.2:
   integrity sha1-uXQNdmOh3E+IphucbZPS2UjqQm4=
   dependencies:
     react-native-dismiss-keyboard "1.0.0"
-
-react-native-image-picker@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npm.taobao.org/react-native-image-picker/download/react-native-image-picker-1.0.1.tgz?cache=0&sync_timestamp=1562663412728&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-native-image-picker%2Fdownload%2Freact-native-image-picker-1.0.1.tgz#8d5f1865f26da603a72787936ed687c11d1bfdd0"
-  integrity sha1-jV8YZfJtpgOnJ4eTbtaHwR0b/dA=
 
 react-native-qrcode-svg@^5.1.2:
   version "5.1.2"
